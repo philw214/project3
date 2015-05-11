@@ -1,0 +1,6 @@
+-User Stories-
+[]A user should be able to select an audio file to play.
+[]A user should be able to control audio playback(play,pause,stop).
+[]When audio is playing, a user should be able to see a visualization that reacts to the audio.
+[]When audio stops, a user should see the visualization stop.
+[]A user should see artist data relevant to the currently playing audio track.
