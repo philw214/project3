@@ -38,11 +38,11 @@ $('document').ready(function() {
       dataType: "json",
       url: window.location.origin + "/artists.json"
     }).done(function(response){
-    console.log(response);
+      console.log(response);
       for(var i = 0; i < response.length; i++)
       {
         if(response[i].name === newartist.innerHTML){
-          audio.src = response[i].audio_id;
+          audio.src = 'audios/' + response[i].audio_id;
         }
       }
     });

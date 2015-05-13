@@ -11451,3 +11451,19 @@ Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89
 
 
 Started GET "/assets/application.self-1396f0ae97a1db4b722bee53ceca96e334a315fd44043e819497c5e5282dbff9.js?body=1" for ::1 at 2015-05-13 13:49:24 -0400
+
+
+Started GET "/" for ::1 at 2015-05-13 14:59:55 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (32.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 635ms (Views: 589.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-261397dda6266e72cc710f941334da12b7ed2acc557f2976c18b543b8fa5844c.js?body=1" for ::1 at 2015-05-13 14:59:56 -0400
+
+
+Started GET "/artists.json" for ::1 at 2015-05-13 15:00:06 -0400
+Processing by ArtistsController#index as JSON
+  [1m[35mArtist Load (63.4ms)[0m  SELECT "artists".* FROM "artists"
+Completed 200 OK in 111ms (Views: 8.5ms | ActiveRecord: 89.2ms)
