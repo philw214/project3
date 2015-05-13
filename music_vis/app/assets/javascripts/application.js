@@ -33,12 +33,12 @@ $('document').ready(function() {
 
   newartist.addEventListener('click', function(event){
     event.preventDefault();
-    console.log(newartist.innerHTML);
     $.ajax({
       type: "GET",
       dataType: "json",
       url: window.location.origin + "/artists.json"
     }).done(function(response){
+    console.log(response);
       for(var i = 0; i < response.length; i++)
       {
         if(response[i].name === newartist.innerHTML){
