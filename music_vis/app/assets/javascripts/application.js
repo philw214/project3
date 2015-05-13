@@ -16,15 +16,41 @@
 //= require_tree .
 
 $('document').ready(function() {
+  // $.ajax({
+  //   type: "GET",
+  //   dataType: "json",
+  //   url: window.location.origin + "/artists.json"
+  // }).done(function(response){
+  //   console.log(response)
+  // });
 
+  var newartist = document.getElementById('newartist')
   var button = document.getElementById('start');
-  var canvas = document.getElementById("canvas");
-  var ctx = canvas.getContext("2d");
+  var canvas = document.getElementById('canvas');
+  var canvasContext = canvas.getContext('2d');
   var width = canvas.width;
   var height = canvas.height;
 
+  newartist.addEventListener('click', function(event){
+    event.preventDefault();
+    console.log(newartist.innerHTML);
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: window.location.origin + "/artists.json"
+    }).done(function(response){
+      for(var i = 0; i < response.length; i++)
+      {
+        if(response[i].name === newartist.innerHTML){
+          audio.src = response[i].audio_id;
+        }
+      }
+    });
+
+  });
+
   var audio = new Audio();
-  audio.src = 'dawn.mp3';
+  audio.src = 'audios/beautyschool.mp3';
   audio.controls = true;
   document.body.appendChild(audio);
 
@@ -34,49 +60,62 @@ $('document').ready(function() {
   source.connect(analyser);
   analyser.connect(audioCtx.destination);
 
-  analyser.fftSize = 2048;
-  var bufferLength = analyser.frequencyBinCount;
-  var dataArray = new Uint8Array(bufferLength);
-  analyser.getByteTimeDomainData(dataArray);
-  ctx.clearRect(0, 0, width, height);
+// **oscilloscope viz*
+  // function scope() {
+  //   analyser.fftSize = 2048;
+  //   var bufferLength = analyser.frequencyBinCount;
+  //   var dataArray = new Uint8Array(bufferLength);
+  //   analyser.getByteTimeDomainData(dataArray);
+  //
+  //   var drawVisual = requestAnimationFrame(scope);
+  //   canvasContext.clearRect(0, 0, width, height);
+  //   canvasContext.fillStyle = 'rgb(200, 200, 200)';
+  //   canvasContext.fillRect(0, 0, width, height);
+  //   canvasContext.lineWidth = 2;
+  //   canvasContext.strokeStyle = 'rgb(0, 0, 0)';
+  //   canvasContext.beginPath();
+  //
+  //   var sliceWidth = width * 1.0 / bufferLength;
+  //   var x = 0;
+  //     for(var i = 0; i < bufferLength; i++) {
+  //       var v = dataArray[i] / 128.0;
+  //       var y = v * height/2;
+  //       if(i === 0) {
+  //         canvasContext.moveTo(x, y);
+  //       } else {
+  //         canvasContext.lineTo(x, y);
+  //       }
+  //       x += sliceWidth;
+  //     }
+  //     canvasContext.lineTo(width, height/2);
+  //     canvasContext.stroke();
+  //   }
+  //   scope();
 
 
+  function bars() {
+    analyser.fftSize = 256;
+    var bufferLength = analyser.frequencyBinCount;
+    var dataArray = new Uint8Array(bufferLength);
+    analyser.getByteFrequencyData(dataArray);
 
-  function draw() {
-    var drawVisual = requestAnimationFrame(draw);
-    analyser.getByteTimeDomainData(dataArray);
-    ctx.fillStyle = 'rgb(200, 200, 200)';
-    ctx.fillRect(0, 0, width, height);
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = 'rgb(0, 0, 0)';
-    ctx.beginPath();
-    var sliceWidth = width * 1.0 / bufferLength;
+    var drawVisual = requestAnimationFrame(bars);
+    canvasContext.clearRect(0, 0, width, height);
+    canvasContext.fillStyle = 'rgb(0,0,0)';
+    canvasContext.fillRect(0, 0, width, height);
+
+    var barWidth = (width / bufferLength);
+    // ^ * 2.5 as baseline
+    var barHeight;
     var x = 0;
       for(var i = 0; i < bufferLength; i++) {
-        var v = dataArray[i] / 128.0;
-        var y = v * height/2;
-        if(i === 0) {
-          ctx.moveTo(x, y);
-        } else {
-          ctx.lineTo(x, y);
-        }
-        x += sliceWidth;
+        barHeight = dataArray[i];
+        canvasContext.fillStyle = 'rgb(' + (barHeight+100) + ', 100, 50)';
+        canvasContext.fillRect(x, height-barHeight/2, barWidth, barHeight);
+        x += barWidth + 1;
       }
-      ctx.lineTo(width, height/2);
-      ctx.stroke();
     }
-  draw();
+
+    bars();
 
 });
-
-  // var sound = new Howl({
-  //   urls: ['dawn.mp3']
-  // });
-
-
-  // button.addEventListener('click', function(event){
-  //   event.preventDefault();
-  //
-  //   // currentTrack.attr('src','dawn.mp3')
-  //   sound.play();
-  // });

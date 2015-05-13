@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+  idcanvas
+#canvas{
+  -webkit-transform: translateX(-350px) rotateX(-30deg) rotateY(-30deg);
+}
+
+
+.canvas{
+  -webkit-box-reflect: below 5px -webkit-linear-gradient(top, transparent, transparent 50%, rgba(255, 255, 255, 0.2));
+
+}
