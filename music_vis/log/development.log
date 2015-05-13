@@ -11467,3 +11467,108 @@ Started GET "/artists.json" for ::1 at 2015-05-13 15:00:06 -0400
 Processing by ArtistsController#index as JSON
   [1m[35mArtist Load (63.4ms)[0m  SELECT "artists".* FROM "artists"
 Completed 200 OK in 111ms (Views: 8.5ms | ActiveRecord: 89.2ms)
+
+
+Started GET "/" for ::1 at 2015-05-13 15:08:52 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 383ms (Views: 362.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-13 15:08:53 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-13 15:08:53 -0400
+
+
+Started GET "/assets/jquery.self-ad66c584c2469d2bb527ba7aef5893549f1554ccc8ab3ccb43bd09ce8c3bf7a1.js?body=1" for ::1 at 2015-05-13 15:08:54 -0400
+
+
+Started GET "/assets/application.self-261397dda6266e72cc710f941334da12b7ed2acc557f2976c18b543b8fa5844c.js?body=1" for ::1 at 2015-05-13 15:08:54 -0400
+
+
+Started GET "/assets/application.self-429be73880e9abc7d4e8a61d2cf7086151a44b475fdd6b4a8e9818abe7d1ff95.css?body=1" for ::1 at 2015-05-13 15:08:54 -0400
+
+
+Started GET "/artists.json" for ::1 at 2015-05-13 15:09:03 -0400
+Processing by ArtistsController#index as JSON
+  [1m[35mArtist Load (0.7ms)[0m  SELECT "artists".* FROM "artists"
+Completed 200 OK in 34ms (Views: 8.0ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/" for ::1 at 2015-05-13 15:25:13 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 463ms (Views: 431.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-13 15:25:15 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-13 15:25:15 -0400
+
+
+Started GET "/assets/application.self-429be73880e9abc7d4e8a61d2cf7086151a44b475fdd6b4a8e9818abe7d1ff95.css?body=1" for ::1 at 2015-05-13 15:25:15 -0400
+
+
+Started GET "/assets/jquery.self-ad66c584c2469d2bb527ba7aef5893549f1554ccc8ab3ccb43bd09ce8c3bf7a1.js?body=1" for ::1 at 2015-05-13 15:25:15 -0400
+
+
+Started GET "/assets/application.self-261397dda6266e72cc710f941334da12b7ed2acc557f2976c18b543b8fa5844c.js?body=1" for ::1 at 2015-05-13 15:25:16 -0400
+
+
+Started GET "/artists.json" for ::1 at 2015-05-13 15:25:26 -0400
+Processing by ArtistsController#index as JSON
+  [1m[35mArtist Load (46.3ms)[0m  SELECT "artists".* FROM "artists"
+Completed 200 OK in 108ms (Views: 7.6ms | ActiveRecord: 84.2ms)
+
+
+Started GET "/" for ::1 at 2015-05-13 15:32:51 -0400
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 180ms (Views: 179.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-429be73880e9abc7d4e8a61d2cf7086151a44b475fdd6b4a8e9818abe7d1ff95.css?body=1" for ::1 at 2015-05-13 15:32:51 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-13 15:32:51 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-13 15:32:51 -0400
+
+
+Started GET "/assets/jquery.self-ad66c584c2469d2bb527ba7aef5893549f1554ccc8ab3ccb43bd09ce8c3bf7a1.js?body=1" for ::1 at 2015-05-13 15:32:51 -0400
+
+
+Started GET "/assets/application.self-261397dda6266e72cc710f941334da12b7ed2acc557f2976c18b543b8fa5844c.js?body=1" for ::1 at 2015-05-13 15:32:51 -0400
+
+
+Started GET "/artists.jsonp" for ::1 at 2015-05-13 15:33:05 -0400
+Processing by ArtistsController#index as 
+Completed 406 Not Acceptable in 1ms (ActiveRecord: 0.0ms)
+
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  app/controllers/artists_controller.rb:5:in `index'
+
+
+  Rendered /Users/Phillip/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /Users/Phillip/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Phillip/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Phillip/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (82.5ms)
+  Rendered /Users/Phillip/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /Users/Phillip/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Phillip/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Phillip/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Phillip/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (67.9ms)
+  Rendered /Users/Phillip/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Phillip/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/Phillip/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (336.7ms)
+
+
+Started GET "/artists.json" for ::1 at 2015-05-13 15:33:13 -0400
+Processing by ArtistsController#index as JSON
+  [1m[36mArtist Load (0.5ms)[0m  [1mSELECT "artists".* FROM "artists"[0m
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.5ms)
