@@ -13,13 +13,19 @@
  *= require_tree .
  *= require_self
  */
-  idcanvas
-#canvas{
-  -webkit-transform: translateX(-350px) rotateX(-30deg) rotateY(-30deg);
-}
+
+/* canvas1
+  -webkit-transform: translateX(12px) rotateX(-30deg) rotateY(30deg);
+} */
 
 
 .canvas{
-  -webkit-box-reflect: below 5px -webkit-linear-gradient(top, transparent, transparent 50%, rgba(255, 255, 255, 0.2));
 
+  /* -webkit-transform: translateX(12px) rotateX(-30deg) rotateY(30deg); */
+  -webkit-box-reflect: below 1px -webkit-linear-gradient(top, transparent, transparent 10%, rgba(255, 255, 255, 0.3));
+  opacity: 0.6;
+}
+
+.artist_info{
+  float: right;
 }
