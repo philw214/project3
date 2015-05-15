@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="/path/to/jquery-ui.min.css" media="screen">
   <title>MusicVis</title>
-  <%= stylesheet_link_tag    'application', 'jquery-ui.min.css', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'jquery-ui.min.js',  'data-turbolinks-track' => true %>
+  <script src="/path/to/jquery-ui.min.js"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
 
 </head>
 <body>
+
   <h1>Music Visualizer</h1>
 
   <form>
