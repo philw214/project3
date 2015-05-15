@@ -2,30 +2,31 @@
 <html>
 <head>
   <title>MusicVis</title>
-
-
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', 'jquery-ui.min.css', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'jquery-ui.min.js',  'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <!-- <script src='music_vis/app/assets/javascripts/howler.js'></script> -->
+
+
 </head>
 <body>
   <h1>Music Visualizer</h1>
 
   <form>
-    <button id="newartist">Does It Offend You, Yeah</button>
+    <button id="newartist">Does It Offend You, Yeah?</button>
   </form>
 
   <div class='artist_info'>
+    <img id='artist_photo' src="">
     <p id='artist_name'></p>
     <p id='artist_bio'></p>
   </div>
 
-
-
-
+  <button id='play' type="button">Play</button>
+  <button id='pause' type="button">Pause</button>
+  <button id='restart' type="button">Restart</button>
 
   <canvas id="canvas" class="canvas" width="700" height="200" style="border:1px solid #ffffff;"></canvas>
+  <div id="audioVolumeSlider"/>
 
 </body>
 </html>

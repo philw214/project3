@@ -9,5 +9,5 @@ Artist.destroy_all
 
 Artist.create([
   {name:'Deftones', audio_id:'beautyschool.mp3', bio:"TBD"},
-  {name:'Does It Offend You, Yeah', audio_id:'dawn.mp3', bio:'TBD'}
+  {name:'Does It Offend You, Yeah?', photo_url:'doesitoffendyou.jpg', audio_id:'dawn.mp3', bio:'TBD'}
   ])

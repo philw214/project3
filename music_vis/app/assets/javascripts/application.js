@@ -16,22 +16,63 @@
 //= require_tree .
 
 $('document').ready(function() {
-  // $.ajax({
-  //   type: "GET",
-  //   dataType: "json",
-  //   url: window.location.origin + "/artists.json"
-  // }).done(function(response){
-  //   console.log(response)
-  // });
+
   var artistName = document.getElementById('artist_name');
   var artistBio = document.getElementById('artist_bio');
-
+  var artistPhoto = document.getElementById('artist_photo');
   var newartist = document.getElementById('newartist');
-  var button = document.getElementById('start');
-  var canvas = document.getElementById('canvas');
-  var canvasContext = canvas.getContext('2d');
-  var width = canvas.width;
-  var height = canvas.height;
+  var playButton = document.getElementById('play');
+  var pauseButton = document.getElementById('pause');
+  var restartButton = document.getElementById('restart');
+  var volume = $("#audioVolumeSlider");
+
+  var audio = new Audio();
+  audio.src = 'audios/beautyschool.mp3';
+  playButton.appendChild(audio);
+
+  function setVolume(myVolume) {
+    audio.volume = myVolume
+  }
+
+  $("#audioVolumeSlider").slider({
+    min: 0,
+    max: 100,
+    value: 0,
+		range: "min",
+		// animate: true,
+    slide: function(event, ui) {
+      setVolume((ui.value) / 100);
+    }
+  });
+
+
+
+  function audioPlay(){
+    audio.play();
+  }
+
+  function audioPause(){
+    audio.pause();
+  }
+
+  function audioRestart(){
+    audio.load();
+  }
+
+  playButton.addEventListener('click', function(event){
+    audioPlay();
+  });
+
+  pauseButton.addEventListener('click', function(event){
+    audioPause();
+  });
+
+  restartButton.addEventListener('click', function(event){
+    audioRestart();
+    audioPlay();
+  });
+
+
 
 
   newartist.addEventListener('click', function(event){
@@ -40,40 +81,39 @@ $('document').ready(function() {
       type: "GET",
       dataType: "json",
       url: window.location.origin  + "/artists.json"
-    }).done(function(response){
-      console.log(response);
-      for(var i = 0; i < response.length; i++)
-      {
-        if(response[i].name === newartist.innerHTML){
-          audio.src = 'audios/' + response[i].audio_id;
-          artistName.innerHTML = response[i].name;
-          artistBio.innerHTML = response[i].bio;
+      }).done(function(response){
+        for(var i = 0; i < response.length; i++){
+          if(response[i].name === newartist.innerHTML){
+            audio.src = 'audios/' + response[i].audio_id;
+            artistName.innerHTML = response[i].name;
+            artistBio.innerHTML = response[i].bio;
+            artistPhoto.src = 'images/' + response[i].photo_url;
+            artistPhoto.width = "200";
+            artistPhoto.height = "200";
+          }
         }
-      }
+      });
     });
 
-  });
+  var canvas = document.getElementById('canvas');
+  var canvasContext = canvas.getContext('2d');
+  var width = canvas.width;
+  var height = canvas.height;
 
-  var audio = new Audio();
-  audio.src = 'audios/beautyschool.mp3';
-  audio.controls = true;
-  document.body.appendChild(audio);
-
-  var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  var analyser = audioCtx.createAnalyser();
-  var source = audioCtx.createMediaElementSource(audio);
+  var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  var analyser = audioContext.createAnalyser();
+  var source = audioContext.createMediaElementSource(audio);
   source.connect(analyser);
-  analyser.connect(audioCtx.destination);
+  analyser.connect(audioContext.destination);
 
-// **oscilloscope viz*
-  function scope() {
+  function visualizer() {
     analyser.fftSize = 2048;
     var bufferLength = analyser.frequencyBinCount;
     var dataArray = new Uint8Array(bufferLength);
     analyser.getByteTimeDomainData(dataArray);
 
 
-    var drawVisual = requestAnimationFrame(scope);
+    var drawVisual = requestAnimationFrame(visualizer);
     canvasContext.clearRect(0, 0, width, height);
     canvasContext.fillStyle = 'rgb(255, 255, 255)';
     canvasContext.fillRect(0, 0, width, height);
@@ -93,52 +133,23 @@ $('document').ready(function() {
         }
         x += sliceWidth;
       }
-      canvasContext.lineTo(width, height/2);
-      canvasContext.stroke();
+    canvasContext.lineTo(width, height/2);
+    canvasContext.stroke();
 
-      // analyser.fftSize = 512;
-        var bufferLength = analyser.frequencyBinCount;
-        var dataArray = new Uint8Array(bufferLength);
-        analyser.getByteFrequencyData(dataArray);
 
-      var barWidth = (width / bufferLength);
-      // ^ * 2.5 as baseline
-      var barHeight;
-      var x = 0;
-        for(var i = 0; i < bufferLength; i++) {
-          barHeight = dataArray[i];
-          canvasContext.fillStyle = 'rgb(' + (barHeight+100) + ', 100, 50)';
-          canvasContext.fillRect(x, height-barHeight/2, barWidth, barHeight);
-          x += barWidth + 1;
+    var bufferLength = analyser.frequencyBinCount;
+    var dataArray = new Uint8Array(bufferLength);
+    analyser.getByteFrequencyData(dataArray);
+
+    var barWidth = (width / bufferLength);
+    var barHeight;
+    var x = 0;
+      for(var i = 0; i < bufferLength; i++) {
+        barHeight = dataArray[i];
+        canvasContext.fillStyle = 'rgb(' + (barHeight+100) + ', 100, 50)';
+        canvasContext.fillRect(x, height-barHeight/2, barWidth, barHeight);
+        x += barWidth + 1;
         }
-
-    }
-  scope();
-
-
-  // function bars() {
-  //   analyser.fftSize = 512;
-  //   var bufferLength = analyser.frequencyBinCount;
-  //   var dataArray = new Uint8Array(bufferLength);
-  //   analyser.getByteFrequencyData(dataArray);
-  //
-  //   var drawVisual = requestAnimationFrame(bars);
-  //   canvasContext.clearRect(0, 0, width, height);
-  //   canvasContext.fillStyle = 'rgb(255, 255,255)';
-  //   canvasContext.fillRect(0, 0, width, height);
-  //
-  //   var barWidth = (width / bufferLength);
-  //   // ^ * 2.5 as baseline
-  //   var barHeight;
-  //   var x = 0;
-  //     for(var i = 0; i < bufferLength; i++) {
-  //       barHeight = dataArray[i];
-  //       canvasContext.fillStyle = 'rgb(' + (barHeight+100) + ', 100, 50)';
-  //       canvasContext.fillRect(x, height-barHeight/2, barWidth, barHeight);
-  //       x += barWidth + 1;
-  //     }
-  //   }
-  //
-  //   bars();
-
+      }
+    visualizer();
 });

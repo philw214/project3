@@ -14,15 +14,23 @@
  *= require_self
  */
 
-/* canvas1
-  -webkit-transform: translateX(12px) rotateX(-30deg) rotateY(30deg);
-} */
 
-
+ #audioVolumeSlider {
+     margin: 10px;
+ }
+ .ui-slider-horizontal {
+     height: 8px;
+     width: 200px;
+ }
+ .ui-slider .ui-slider-handle {
+     height: 15px;
+     width: 15px;
+     padding-left: 5px;
+ }
 .canvas{
 
   /* -webkit-transform: translateX(12px) rotateX(-30deg) rotateY(30deg); */
-  -webkit-box-reflect: below 1px -webkit-linear-gradient(top, transparent, transparent 10%, rgba(255, 255, 255, 0.3));
+  /* -webkit-box-reflect: below 1px -webkit-linear-gradient(top, transparent, transparent 10%, rgba(255, 255, 255, 0.3)); */
   opacity: 0.6;
 }
 
