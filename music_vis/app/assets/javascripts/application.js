@@ -16,18 +16,21 @@
 //= require_tree .
 
 $('document').ready(function() {
-
+  var artistInfo = document.getElementById('artist_info');
   var artistName = document.getElementById('artist_name');
-  var artistBio = document.getElementById('artist_bio');
-  var artistPhoto = document.getElementById('artist_photo');
+  var artistSong = document.getElementById('artist_song');
+  var artistAlbum = document.getElementById('artist_album');
   var newartist = document.getElementById('newartist');
+  var newartist2 = document.getElementById('newartist2');
+  var newartist3 = document.getElementById('newartist3');
+  var newartist4 = document.getElementById('newartist4');
   var playButton = document.getElementById('play');
   var pauseButton = document.getElementById('pause');
   var restartButton = document.getElementById('restart');
   var volume = $("#audioVolumeSlider");
 
   var audio = new Audio();
-  audio.src = 'audios/beautyschool.mp3';
+  audio.src = 'audios/discipline.mp3';
   playButton.appendChild(audio);
 
   function setVolume(myVolume) {
@@ -60,6 +63,8 @@ $('document').ready(function() {
   }
 
   playButton.addEventListener('click', function(event){
+    event.preventDefault();
+    canvas.style.display = "inline";
     audioPlay();
   });
 
@@ -72,9 +77,6 @@ $('document').ready(function() {
     audioPlay();
   });
 
-
-
-
   newartist.addEventListener('click', function(event){
     event.preventDefault();
     $.ajax({
@@ -82,14 +84,78 @@ $('document').ready(function() {
       dataType: "json",
       url: window.location.origin  + "/artists.json"
       }).done(function(response){
+
+          artistInfo.style.display = "inline";
         for(var i = 0; i < response.length; i++){
           if(response[i].name === newartist.innerHTML){
             audio.src = 'audios/' + response[i].audio_id;
             artistName.innerHTML = response[i].name;
-            artistBio.innerHTML = response[i].bio;
-            artistPhoto.src = 'images/' + response[i].photo_url;
-            artistPhoto.width = "200";
-            artistPhoto.height = "200";
+            artistSong.innerHTML = response[i].song;
+            artistAlbum.innerHTML =response[i].album;
+
+          }
+        }
+      });
+    });
+
+  newartist2.addEventListener('click', function(event){
+    event.preventDefault();
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: window.location.origin  + "/artists.json"
+      }).done(function(response){
+
+          artistInfo.style.display = "inline";
+        for(var i = 0; i < response.length; i++){
+          if(response[i].name === newartist2.innerHTML){
+            audio.src = 'audios/' + response[i].audio_id;
+            artistName.innerHTML = response[i].name;
+            artistSong.innerHTML = response[i].song;
+            artistAlbum.innerHTML =response[i].album;
+
+          }
+        }
+      });
+    });
+
+  newartist3.addEventListener('click', function(event){
+    event.preventDefault();
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: window.location.origin  + "/artists.json"
+      }).done(function(response){
+
+          artistInfo.style.display = "inline";
+        for(var i = 0; i < response.length; i++){
+          if(response[i].name === newartist3.innerHTML){
+            audio.src = 'audios/' + response[i].audio_id;
+            artistName.innerHTML = response[i].name;
+            artistSong.innerHTML = response[i].song;
+            artistAlbum.innerHTML =response[i].album;
+
+          }
+        }
+      });
+    });
+
+  newartist4.addEventListener('click', function(event){
+    event.preventDefault();
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: window.location.origin  + "/artists.json"
+      }).done(function(response){
+
+          artistInfo.style.display = "inline";
+        for(var i = 0; i < response.length; i++){
+          if(response[i].name === newartist4.innerHTML){
+            audio.src = 'audios/' + response[i].audio_id;
+            artistName.innerHTML = response[i].name;
+            artistSong.innerHTML = response[i].song;
+            artistAlbum.innerHTML =response[i].album;
+
           }
         }
       });
@@ -111,7 +177,6 @@ $('document').ready(function() {
     var bufferLength = analyser.frequencyBinCount;
     var dataArray = new Uint8Array(bufferLength);
     analyser.getByteTimeDomainData(dataArray);
-
 
     var drawVisual = requestAnimationFrame(visualizer);
     canvasContext.clearRect(0, 0, width, height);
@@ -136,11 +201,9 @@ $('document').ready(function() {
     canvasContext.lineTo(width, height/2);
     canvasContext.stroke();
 
-
     var bufferLength = analyser.frequencyBinCount;
     var dataArray = new Uint8Array(bufferLength);
     analyser.getByteFrequencyData(dataArray);
-
     var barWidth = (width / bufferLength);
     var barHeight;
     var x = 0;
@@ -151,5 +214,5 @@ $('document').ready(function() {
         x += barWidth + 1;
         }
       }
-    visualizer();
+  visualizer();
 });

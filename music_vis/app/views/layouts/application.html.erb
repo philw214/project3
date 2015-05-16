@@ -2,6 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="/path/to/jquery-ui.min.css" media="screen">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <title>MusicVis</title>
   <script src="/path/to/jquery-ui.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -12,24 +13,45 @@
 </head>
 <body>
 
-  <h1>Music Visualizer</h1>
+  <h1>music.Vu</h1>
+<h2>Featured Artists of the Week</h2>
+</br>
 
-  <form>
-    <button id="newartist">Does It Offend You, Yeah?</button>
-  </form>
+  <tr>
 
-  <div class='artist_info'>
-    <img id='artist_photo' src="">
+     <td><button id="newartist">Deftones</button></td>
+     <td><button id="newartist2">Bjork</button></td>
+     <td><button id="newartist3">Nine Inch Nails</button></td>
+     <td><button id="newartist4">Alexisonfire</button></td>
+   </tr>
+
+
+  <div id='artist_info'>
+    <h2>Artist Info</h2>
     <p id='artist_name'></p>
-    <p id='artist_bio'></p>
+    <p>Song:<p id='artist_song'></p></p>
+    <p>Album:<p id='artist_album'></p></p>
   </div>
 
-  <button id='play' type="button">Play</button>
-  <button id='pause' type="button">Pause</button>
-  <button id='restart' type="button">Restart</button>
+  <div class='container'>
+    <div class='button' style='text-align:center'>
+    <button id='play' type="button">Play</button>
+    <button id='pause' type="button">Pause</button>
+    <button id='restart' type="button">Restart</button>
+    <div id="audioVolumeSlider"></div>
+  </div>
 
-  <canvas id="canvas" class="canvas" width="700" height="200" style="border:1px solid #ffffff;"></canvas>
-  <div id="audioVolumeSlider"></div>
+  </div>
+
+  <div class='pause' style='text-align:center'>
+  <div>
+
+  <div class='button' style='text-align:center'>
+  </div>
+
+  <canvas id="canvas" class="canvas" width="900" height="200" style="border:1px solid #FFFFFF;"></canvas>
+</div>
+
 
 </body>
 </html>

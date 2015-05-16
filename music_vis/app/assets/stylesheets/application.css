@@ -14,6 +14,40 @@
  *= require_self
  */
 
+ td{
+  border: 1px solid;
+}
+
+.container{
+  width: 50%;
+  margin-left: 10%;
+}
+ #artist_info{
+   display: none;
+   float: right;
+   /*margin: 60px 30px 0 0;*/
+   margin-top: 2%;
+   position: static;
+ }
+
+ h1{
+   border-bottom: 3px solid;
+ }
+
+h2{
+
+  padding-right: 0;
+  padding-bottom: 2%;
+}
+
+.button{
+  margin-top: 60px;
+    margin-left: auto;
+   margin-right: auto;
+   width: 6em;
+}
+
+
 
  #audioVolumeSlider {
      margin: 10px;
@@ -27,13 +61,17 @@
      width: 15px;
      padding-left: 5px;
  }
+
+ canvas{
+  
+   display: none;
+   float: left;
+   margin-top: 100px;
+ }
+
 .canvas{
-
-  /* -webkit-transform: translateX(12px) rotateX(-30deg) rotateY(30deg); */
-  /* -webkit-box-reflect: below 1px -webkit-linear-gradient(top, transparent, transparent 10%, rgba(255, 255, 255, 0.3)); */
-  opacity: 0.6;
-}
-
-.artist_info{
-  float: right;
+  border: 1px solid;
+  -webkit-transform: translateX(12px) rotateX(-30deg) rotateY(30deg);
+  -webkit-box-reflect: below 1px -webkit-linear-gradient(top, transparent, transparent 10%, rgba(255, 255, 255, 0.3));
+  opacity: 0.8;
 }
