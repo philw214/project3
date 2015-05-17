@@ -14,14 +14,29 @@
  *= require_self
  */
 
- td{
-  border: 1px solid;
+
+
+#artist_name{
+  font-weight: 900;
+  font-size: 20px;
+ }
+
+#artist_song{
+  font-weight: 900;
+  font-size: 20px;
 }
+
+#artist_album{
+  font-weight: 900;
+  font-size: 20px;
+}
+
 
 .container{
   width: 50%;
   margin-left: 10%;
 }
+
  #artist_info{
    display: none;
    float: right;
@@ -40,14 +55,12 @@ h2{
   padding-bottom: 2%;
 }
 
-.button{
+.buttons{
   margin-top: 60px;
     margin-left: auto;
    margin-right: auto;
    width: 6em;
 }
-
-
 
  #audioVolumeSlider {
      margin: 10px;
@@ -63,7 +76,7 @@ h2{
  }
 
  canvas{
-  
+
    display: none;
    float: left;
    margin-top: 100px;
@@ -72,6 +85,6 @@ h2{
 .canvas{
   border: 1px solid;
   -webkit-transform: translateX(12px) rotateX(-30deg) rotateY(30deg);
-  -webkit-box-reflect: below 1px -webkit-linear-gradient(top, transparent, transparent 10%, rgba(255, 255, 255, 0.3));
+  -webkit-box-reflect: below 1px -webkit-linear-gradient(top, transparent, transparent 8%, rgba(255, 255, 255, 0.2));
   opacity: 0.8;
 }
