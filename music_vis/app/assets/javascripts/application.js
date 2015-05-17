@@ -30,7 +30,7 @@ $('document').ready(function() {
   var volume = $("#audioVolumeSlider");
 
   var audio = new Audio();
-  audio.src = 'audios/discipline.mp3';
+  audio.src = '';
   playButton.appendChild(audio);
 
   function setVolume(myVolume) {
