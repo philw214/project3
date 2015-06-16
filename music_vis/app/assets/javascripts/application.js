@@ -16,7 +16,7 @@
 //= require_tree .
 
 $('document').ready(function() {
-  var newartist = document.getElementById('newartist');
+  var newartist = document.getElementsByClassName('newartist');
   var playButton = document.getElementById('play');
   var pauseButton = document.getElementById('pause');
   var restartButton = document.getElementById('restart');
@@ -25,6 +25,27 @@ $('document').ready(function() {
   audio.src = '';
   playButton.appendChild(audio);
 
+  $( ".newartist" ).each(function(index) {
+    $(this).on("click", function(){
+    var thisArtist = $(this).text();
+      $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: window.location.origin  + "/artists.json"
+        }).done(function(response){
+          $('#artist_info').css('display', 'inline');
+          for(var i = 0; i < response.length; i++){
+            if(response[i].name === thisArtist){
+              audio.src = 'audios/' + response[i].audio_id;
+              $('#artist_name').text(response[i].name);
+              $('#artist_song').text(response[i].song);
+              $('#artist_album').text(response[i].album);
+
+            }
+          }
+      });
+    });
+});
 
   $("#audioVolumeSlider").slider({
     min: 0,
@@ -68,25 +89,26 @@ $('document').ready(function() {
     audioPlay();
   });
 
-  newartist.addEventListener('click', function(event){
-    event.preventDefault();
-    $.ajax({
-      type: "GET",
-      dataType: "json",
-      url: window.location.origin  + "/artists.json"
-      }).done(function(response){
-        $('#artist_info').css('display', 'inline');
-        for(var i = 0; i < response.length; i++){
-          if(response[i].name === newartist.innerHTML){
-            audio.src = 'audios/' + response[i].audio_id;
-            $('#artist_name').text(response[i].name);
-            $('#artist_song').text(response[i].song);
-            $('#artist_album').text(response[i].album);
-
-          }
-        }
-      });
-    });
+  // newartist.addEventListener('click', function(event){
+  //   event.preventDefault();
+  //   console.log(this.val());
+  //   // $.ajax({
+  //   //   type: "GET",
+  //   //   dataType: "json",
+  //   //   url: window.location.origin  + "/artists.json"
+  //   //   }).done(function(response){
+  //   //     $('#artist_info').css('display', 'inline');
+  //   //     for(var i = 0; i < response.length; i++){
+  //   //       if(response[i].name === newartist.innerHTML){
+  //   //         audio.src = 'audios/' + response[i].audio_id;
+  //   //         $('#artist_name').text(response[i].name);
+  //   //         $('#artist_song').text(response[i].song);
+  //   //         $('#artist_album').text(response[i].album);
+  //   //
+  //   //       }
+  //   //     }
+  //   //   });
+  //   });
 
 
 
