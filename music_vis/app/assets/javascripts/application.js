@@ -16,37 +16,30 @@
 //= require_tree .
 
 $('document').ready(function() {
-  var artistInfo = document.getElementById('artist_info');
-  var artistName = document.getElementById('artist_name');
-  var artistSong = document.getElementById('artist_song');
-  var artistAlbum = document.getElementById('artist_album');
   var newartist = document.getElementById('newartist');
-  var newartist2 = document.getElementById('newartist2');
-  var newartist3 = document.getElementById('newartist3');
-  var newartist4 = document.getElementById('newartist4');
   var playButton = document.getElementById('play');
   var pauseButton = document.getElementById('pause');
   var restartButton = document.getElementById('restart');
-  var volume = $("#audioVolumeSlider");
 
   var audio = new Audio();
   audio.src = '';
   playButton.appendChild(audio);
 
-  function setVolume(myVolume) {
-    audio.volume = myVolume
-  }
 
   $("#audioVolumeSlider").slider({
     min: 0,
-    max: 100,
-    value: 50,
+    max: 120,
+    value: 60,
 		range: "min",
-		// animate: true,
+	  animate: true,
     slide: function(event, ui) {
-      setVolume((ui.value) / 100);
+      setVolume((ui.value) / 120);
     }
   });
+
+  function setVolume(myVolume) {
+    audio.volume = myVolume
+  }
 
   function audioPlay(){
     audio.play();
@@ -82,82 +75,20 @@ $('document').ready(function() {
       dataType: "json",
       url: window.location.origin  + "/artists.json"
       }).done(function(response){
-
-          artistInfo.style.display = "inline";
+        $('#artist_info').css('display', 'inline');
         for(var i = 0; i < response.length; i++){
           if(response[i].name === newartist.innerHTML){
             audio.src = 'audios/' + response[i].audio_id;
-            artistName.innerHTML = response[i].name;
-            artistSong.innerHTML = response[i].song;
-            artistAlbum.innerHTML =response[i].album;
+            $('#artist_name').text(response[i].name);
+            $('#artist_song').text(response[i].song);
+            $('#artist_album').text(response[i].album);
 
           }
         }
       });
     });
 
-  newartist2.addEventListener('click', function(event){
-    event.preventDefault();
-    $.ajax({
-      type: "GET",
-      dataType: "json",
-      url: window.location.origin  + "/artists.json"
-      }).done(function(response){
 
-          artistInfo.style.display = "inline";
-        for(var i = 0; i < response.length; i++){
-          if(response[i].name === newartist2.innerHTML){
-            audio.src = 'audios/' + response[i].audio_id;
-            artistName.innerHTML = response[i].name;
-            artistSong.innerHTML = response[i].song;
-            artistAlbum.innerHTML =response[i].album;
-
-          }
-        }
-      });
-    });
-
-  newartist3.addEventListener('click', function(event){
-    event.preventDefault();
-    $.ajax({
-      type: "GET",
-      dataType: "json",
-      url: window.location.origin  + "/artists.json"
-      }).done(function(response){
-
-          artistInfo.style.display = "inline";
-        for(var i = 0; i < response.length; i++){
-          if(response[i].name === newartist3.innerHTML){
-            audio.src = 'audios/' + response[i].audio_id;
-            artistName.innerHTML = response[i].name;
-            artistSong.innerHTML = response[i].song;
-            artistAlbum.innerHTML =response[i].album;
-
-          }
-        }
-      });
-    });
-
-  newartist4.addEventListener('click', function(event){
-    event.preventDefault();
-    $.ajax({
-      type: "GET",
-      dataType: "json",
-      url: window.location.origin  + "/artists.json"
-      }).done(function(response){
-
-          artistInfo.style.display = "inline";
-        for(var i = 0; i < response.length; i++){
-          if(response[i].name === newartist4.innerHTML){
-            audio.src = 'audios/' + response[i].audio_id;
-            artistName.innerHTML = response[i].name;
-            artistSong.innerHTML = response[i].song;
-            artistAlbum.innerHTML =response[i].album;
-
-          }
-        }
-      });
-    });
 
   var canvas = document.getElementById('canvas');
   var canvasContext = canvas.getContext('2d');
@@ -210,7 +141,7 @@ $('document').ready(function() {
         canvasContext.fillStyle = 'rgb(' + (barHeight+100) + ', 100, 50)';
         canvasContext.fillRect(x, height-barHeight/2, barWidth, barHeight);
         x += barWidth + 1;
-        }
       }
+  }
   visualizer();
 });

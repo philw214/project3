@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MusicVis</title>
-    <%= stylesheet_link_tag    'application', 'jquery-ui', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'jquery-ui', 'jquery' 'data-turbolinks-track' => true %>
+    <title>music.Vu</title>
+    <%= stylesheet_link_tag    'application', 'jquery-ui.min.css', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'jquery-ui.min.js', 'jquery' 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -11,11 +11,16 @@
     <h1>music.Vu</h1>
     <h2>Featured Artists of the Week</h2>
 
+  <!--   <form>
+    <input type="text" placeholder="Search..." required>
+    <input type="button" value="Search">
+  </form> -->
+
     <tr>
      <td><button id="newartist">Deftones</button></td>
-     <td><button id="newartist2">Bjork</button></td>
-     <td><button id="newartist3">Nine Inch Nails</button></td>
-     <td><button id="newartist4">Alexisonfire</button></td>
+     <td><button id="newartist">Bjork</button></td>
+     <td><button id="newartist">Nine Inch Nails</button></td>
+     <td><button id="newartist">Alexisonfire</button></td>
     </tr>
 
     <div id='artist_info'>
