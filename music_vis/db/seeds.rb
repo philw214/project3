@@ -11,7 +11,7 @@ Artist.create([
   {name:'Deftones', song:'Beauty School', album:'Diamond Eyes', audio_id:'beautyschool.mp3', photo_url:'deftones.jpg'},
   {name:'Alexisonfire', song:'Born and Raised', album:'Death Letter (EP)', audio_id:'bornandraised.mp3', photo_url:'alexis.jpg'},
   {name:'Nine Inch Nails', song:'Discipline', album:'The Slip', audio_id:'discipline.mp3', photo_url:'nin.jpg'},
-  {name:'Bjork', song:'Joga', album:'Homogenic', audio_id:'joga.mp3', photo_url:'bjork.jpeg'},
+  {name:'Bjork', song:'Joga', album:'Homogenic', audio_id:'joga.mp3', photo_url:'bjork.jpg'},
   {name:'Lupe Fiasco', song:'The Instrumental', album:'Food & Liquor', audio_id:'the_instrumental.mp3', photo_url:'lupe.jpg'},
   {name:'Mice Parade', song:'Circle None', album:'Mice Parade', audio_id:'circle_none.mp3', photo_url:'miceparade.jpg'},
   {name:'TIAAN', song:'Dive Deep', album:'Dive Deep (Single)', audio_id:'dive_deep.mp3', photo_url:'tiaan.jpg'}
