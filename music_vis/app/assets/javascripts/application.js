@@ -38,7 +38,7 @@ $('document').ready(function() {
           for(var i = 0; i < response.length; i++){
             if(response[i].name === thisArtist){
               audio.src = 'audios/' + response[i].audio_id;
-              $('#artist_photo').attr('src', '/assets' +response[i].photo_url);
+              $('#artist_photo').attr('src', 'images/' +response[i].photo_url);
               $('#artist_name').text(response[i].name);
               $('#artist_song').text(response[i].song);
               $('#artist_album').text(response[i].album);
@@ -96,7 +96,7 @@ $('document').ready(function() {
   var canvasContext = canvas.getContext('2d');
   var width = canvas.width;
   var height = canvas.height;
-
+  //create new audio context
   var audioContext = new (window.AudioContext || window.webkitAudioContext)();
   var analyser = audioContext.createAnalyser();
   var source = audioContext.createMediaElementSource(audio);
