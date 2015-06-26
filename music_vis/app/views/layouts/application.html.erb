@@ -1,44 +1,49 @@
-<!DOCTYPE html>
+
 <html>
-  <head>
-    <title>music.Vu</title>
-    <%= stylesheet_link_tag    'application', 'jquery-ui.min.css', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'jquery-ui.min.js', 'jquery' 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-
-    <h1>music.Vu</h1>
-    <h2>Featured Artists of the Week</h2>
-
-  <!--   <form>
-    <input type="text" placeholder="Search..." required>
-    <input type="button" value="Search">
-  </form> -->
-
-    <tr>
-     <td><button id="newartist">Deftones</button></td>
-     <td><button id="newartist">Bjork</button></td>
-     <td><button id="newartist">Nine Inch Nails</button></td>
-     <td><button id="newartist">Alexisonfire</button></td>
-    </tr>
-
-    <div id='artist_info'>
-      <h2>Artist Info</h2>
-      <p id='artist_name'></p>
-      <p>Song:<p id='artist_song'></p></p>
-      <p>Album:<p id='artist_album'></p></p>
-    </div>
-
-    <div class='container'>
-      <div class='buttons' style='text-align:center'>
-        <button id='play' type="button">Play</button>
-        <button id='pause' type="button">Pause</button>
-        <button id='restart' type="button">Restart</button>
-        <div id="audioVolumeSlider"></div>
-      </div>
-    </div>
-
-    <canvas id="canvas" class="canvas" width="900" height="200" style="border:1px solid #FFFFFF;"></canvas>
-  </body>
+ <head>
+  <title>My Beats Music Player</title>
+ </head>
+ <body>
+  <script src="http://bam.cdn.beatsmusic.com/bam-1.0.2.min.js"></script>
+  <script>
+  var bam = new BeatsAudioManager("myBeatsPlayer");
+bam.on("ready", handleReady);
+bam.on("error", handleError);
+function handleReady(value) {
+    bam.clientId = ['8bshvq8k89pe9b9fg8bsncfv'];
+    bam.authentication = {
+        access_token:["fkasz2ekgtz2nsex8mph3kw3"],
+        user_id:['musicguy214']
+    };
+    bam.identifier = ['tr61032803'];
+    bam.load();
+};
+function handleError(value) {
+    console.log("Error: " + value);
+    switch(value){
+        case "auth":
+        // Beats Music API auth error (401)
+        break;
+        case "connectionfailure":
+        // audio stream connection failure
+        break;
+        case "apisecurity":
+        // Beats Music API crossdomain error
+        break;
+        case "streamsecurity":
+        // audio stream crossdomain error
+        break;
+        case "streamio":
+        // audio stream io error
+        break;
+        case "apiio":
+        // Beats Music API io error getting track data
+        break;
+        case "flashversion":
+        // flash version too low or not installed
+        break;
+    }
+};
+  </script>
+ </body>
 </html>

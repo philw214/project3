@@ -73,19 +73,11 @@ $('document').ready(function() {
     $.ajax({
       type: "GET",
       dataType: "json",
-      url: window.location.origin  + "/artists.json"
+      url: 'https://partner.api.beatsmusic.com/v1/api/tracks/tr61032803/audio?bitrate=highest&acquire=1&access_token=fkasz2ekgtz2nsex8mph3kw3'
       }).done(function(response){
-        $('#artist_info').css('display', 'inline');
-        for(var i = 0; i < response.length; i++){
-          if(response[i].name === newartist.innerHTML){
-            audio.src = 'audios/' + response[i].audio_id;
-            $('#artist_name').text(response[i].name);
-            $('#artist_song').text(response[i].song);
-            $('#artist_album').text(response[i].album);
-
-          }
-        }
+        console.log(response);
       });
+
     });
 
 
