@@ -16,13 +16,13 @@
 
 img{
   border-radius: 80px;
-  height:400px;
-  width: 475px;
+  height:85%;
+  width: 74%;
 }
 #artist_name{
   font-weight: 900;
   font-size: 20px;
- }
+}
 #artist_song{
   font-weight: 900;
   font-size: 20px;
@@ -36,6 +36,13 @@ img{
   margin-left: 10%;
 }
 
+@media screen and (max-width: 1354px) {
+  img{
+    height: 70%;
+    width: 52%;
+  }
+}
+
 #artist_info{
  display: none;
  float: right;
@@ -44,7 +51,7 @@ img{
  text-align: center;
 }
 
-h1{
+h1 {
   border-bottom: 3px solid;
   font-family: 'Iceland', cursive;
   font-size: 50px;
@@ -97,7 +104,7 @@ h2{
   outline: none;
 }
 
-#play:hover {
+#play:hover{
   background: #5f727d;
   color: #ffffff;
   background-image: -webkit-linear-gradient(top, #5f727d, #3498db);
@@ -146,6 +153,36 @@ h2{
 #audioVolumeSlider {
      margin: 10px;
 }
+@media screen and (max-width: 480px){
+  p #artist_name, #artist_song, #artist_album{
+    font-size: 13px;
+    line-height: 50%;
+  }
+  #artist_name{
+    font-size: 16px;
+  }
+  #canvas{
+    position: relative;
+    margin-top: 10px;
+    height:123px;
+    width: 350px;
+  }
+  .buttons{
+    display: inline;
+    left: 44px;
+    position: relative;
+  }
+  #play{
+  padding: 4px 14px 4px 14px;
+  }
+  #pause{
+  padding: 4px 14px 4px 14px;
+  }
+  #restart{
+  position: absolute;
+  padding: 4px 14px 4px 14px;
+  }
+}
 .ui-slider-horizontal {
      height: 8px;
      width: 200px;
@@ -159,6 +196,7 @@ canvas{
   display: none;
   float: left;
   margin-top: 100px;
+
 }
 .canvas{
   position: absolute;
