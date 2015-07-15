@@ -36,13 +36,6 @@ img{
   margin-left: 10%;
 }
 
-@media screen and (max-width: 1354px) {
-  img{
-    height: 70%;
-    width: 52%;
-  }
-}
-
 #artist_info{
  display: none;
  float: right;
@@ -104,7 +97,7 @@ h2{
   outline: none;
 }
 
-#play:hover{
+#play:hover {
   background: #5f727d;
   color: #ffffff;
   background-image: -webkit-linear-gradient(top, #5f727d, #3498db);
@@ -153,36 +146,6 @@ h2{
 #audioVolumeSlider {
      margin: 10px;
 }
-@media screen and (max-width: 480px){
-  p #artist_name, #artist_song, #artist_album{
-    font-size: 13px;
-    line-height: 50%;
-  }
-  #artist_name{
-    font-size: 16px;
-  }
-  #canvas{
-    position: relative;
-    margin-top: 10px;
-    height:123px;
-    width: 350px;
-  }
-  .buttons{
-    display: inline;
-    left: 44px;
-    position: relative;
-  }
-  #play{
-  padding: 4px 14px 4px 14px;
-  }
-  #pause{
-  padding: 4px 14px 4px 14px;
-  }
-  #restart{
-  position: absolute;
-  padding: 4px 14px 4px 14px;
-  }
-}
 .ui-slider-horizontal {
      height: 8px;
      width: 200px;
@@ -205,4 +168,81 @@ canvas{
   -webkit-transform: translateX(12px) rotateX(-30deg) rotateY(30deg);
   -webkit-box-reflect: below 3px -webkit-linear-gradient(top, transparent, transparent 8%, rgba(255, 255, 255, 0.2));
   opacity: 0.8;
+}
+@media screen and (max-width: 1400px) {
+  img{
+    height: 70%;
+    width: 52%;
+  }
+  #canvas{
+    position: absolute;
+    top: 48%;
+    height:20%;
+    width: 50%;
+  }
+}
+@media screen and (max-width: 1080px) {
+  #canvas{
+    position: absolute;
+    top: 48%;
+    height:20%;
+    width: 46%;
+  }
+}
+@media screen and (max-width: 854px) {
+  .buttons{
+    position: absolute;
+  }
+}
+@media screen and (max-width: 765px){
+  .buttons{
+    display: inline;
+    left: 44px;
+    position: relative;
+  }
+  #audioVolumeSlider{
+    width: 50%;
+  }
+}
+
+/*@media screen and (max-width: 637px){
+  .buttons{
+    display: inline;
+    left: 37px;
+    position: relative;
+  }
+}*/
+
+@media screen and (max-width: 622px){
+  p #artist_name, #artist_song, #artist_album{
+    font-size: 13px;
+    line-height: 50%;
+  }
+  #artist_name{
+    font-size: 16px;
+  }
+  #canvas{
+    position: relative;
+    margin-top: 12px;
+    height:123px;
+    width: 350px;
+  }
+  #audioVolumeSlider{
+    width: 95%;
+  }
+  .buttons{
+    display: inline;
+    left: 44px;
+    position: relative;
+  }
+  #play{
+    padding: 4px 14px 4px 14px;
+  }
+  #pause{
+    padding: 4px 14px 4px 14px;
+  }
+  #restart{
+    position: absolute;
+    padding: 4px 14px 4px 14px;
+  }
 }
