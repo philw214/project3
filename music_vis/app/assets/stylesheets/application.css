@@ -15,6 +15,7 @@
 
 
 img{
+  box-shadow: 9px 10px 23px 2px rgba(145,138,145,1);
   border-radius: 80px;
   height:85%;
   width: 74%;
@@ -62,6 +63,8 @@ h2{
   margin-right: auto;
   width: 6em;
 }
+
+
 .newartist {
   background: #fa4f17;
   background-image: -webkit-linear-gradient(top, #fa4f17, #eaeff2);
@@ -166,7 +169,7 @@ canvas{
   bottom: 22%;
   border: 1px solid;
   -webkit-transform: translateX(12px) rotateX(-30deg) rotateY(30deg);
-  -webkit-box-reflect: below 3px -webkit-linear-gradient(top, transparent, transparent 8%, rgba(255, 255, 255, 0.2));
+  -webkit-box-reflect: below 3px -webkit-linear-gradient(top, transparent, transparent 8%, rgba(255, 255, 255, 0.5));
   opacity: 0.8;
 }
 @media screen and (max-width: 1400px) {
