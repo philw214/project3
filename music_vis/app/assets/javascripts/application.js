@@ -21,6 +21,10 @@ $('document').ready(function() {
   var pauseButton = document.getElementById('pause');
   var restartButton = document.getElementById('restart');
 
+  $('.changecss').on('click', function(){
+    $('head').append('<link rel="stylesheet" href="/assets/test.css" media="screen" />');
+  })
+
   var audio = new Audio();
   audio.src = '';
   playButton.appendChild(audio);
