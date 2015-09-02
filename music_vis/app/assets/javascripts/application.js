@@ -135,8 +135,6 @@ $('document').ready(function() {
     //create oscilloscope visual
     var drawVisual = requestAnimationFrame(visualizer);
     canvasContext.clearRect(0, 0, width, height);
-    // canvasContext.fillStyle = 'rgb(255, 255, 255)';
-    // canvasContext.fillRect(0, 0, width, height);
     canvasContext.lineWidth = 2;
     if (clicked === true) {
     canvasContext.strokeStyle = val1;
