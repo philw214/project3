@@ -23,7 +23,8 @@ $('document').ready(function() {
   var css = $("#css");
   var clicked;
 
-  $(".changecss").on('click', function(){
+  //Change CSS
+  $(".changecss1").on('click', function(){
     clicked = true;
     $('#css').attr('href','/assets/css_change1.css');
     visualizer("rgb(247, 105, 58)","rgb(255, 255, 255)");
@@ -32,6 +33,12 @@ $('document').ready(function() {
   $(".changecss2").on('click', function(){
     // clicked = true;
     $('#css').attr('href','/assets/css_change2.css');
+    // visualizer("rgb(247, 105, 58)","rgb(255, 255, 255)");
+  });
+
+  $(".defaultcss").on('click', function(){
+    clicked = false;
+    $('#css').attr('href','/assets/application.css');
     // visualizer("rgb(247, 105, 58)","rgb(255, 255, 255)");
   });
 

@@ -1,7 +1,30 @@
 body{
   background-image: url('/images/alt_bckgrd1.jpg');
 }
-
+.css {
+  height: 100px;
+  width: 100px;
+  margin:  auto;
+  display: inline;
+  position: relative;
+  left: 50%;
+}
+.css button {
+  outline: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 30px;
+  margin: 10px;
+}
+.changecss1 {
+  background-image: url('/images/alt_bckgrd1_thumbnail.jpg');
+}
+.changecss2 {
+  background-image: url('/images/alt_bckgrd2_thumbnail.jpg');
+}
+.defaultcss {
+  background-color: white;
+}
 img{
   box-shadow: 0px 10px 79px -3px rgba(145,138,145,1);
   border-radius: 80px;
@@ -40,12 +63,15 @@ h1 {
   border-bottom: 3px solid;
   font-family: 'Iceland', cursive;
   font-size: 50px;
+  margin-bottom: 0;
 }
 
 h2{
   font-family: 'Audiowide', cursive;
   padding-right: 0;
   padding-bottom: 2%;
+  width: 25%;
+  margin: 2px;
 }
 
 .buttons{
