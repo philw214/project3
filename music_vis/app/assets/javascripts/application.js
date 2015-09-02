@@ -27,13 +27,13 @@ $('document').ready(function() {
   $(".changecss1").on('click', function(){
     clicked = true;
     $('#css').attr('href','/assets/css_change1.css');
-    visualizer("rgb(247, 105, 58)","rgb(255, 255, 255)");
+    visualizer("rgb(0, 168, 219)","rgb(255, 255, 255)");
   });
 
   $(".changecss2").on('click', function(){
-    // clicked = true;
+    clicked = true;
     $('#css').attr('href','/assets/css_change2.css');
-    // visualizer("rgb(247, 105, 58)","rgb(255, 255, 255)");
+    visualizer("rgb(8, 112, 84)","rgb(240, 0, 2)");
   });
 
   $(".defaultcss").on('click', function(){
@@ -41,6 +41,7 @@ $('document').ready(function() {
     $('#css').attr('href','/assets/application.css');
     // visualizer("rgb(247, 105, 58)","rgb(255, 255, 255)");
   });
+
 
   var audio = new Audio();
   audio.src = '';
@@ -178,6 +179,4 @@ $('document').ready(function() {
     }
   }
   visualizer();
-
-
 });
