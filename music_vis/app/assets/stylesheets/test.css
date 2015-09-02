@@ -1,5 +1,5 @@
 body{
-  background-image: url('/images/alt_css.jpg');
+  background-image: url('/images/alt_bckgrd1.jpg');
 }
 
 img{
@@ -156,7 +156,6 @@ canvas{
 .canvas{
   position: absolute;
   bottom: 22%;
-  border: 1px solid;
   -webkit-transform: translateX(12px) rotateX(-30deg) rotateY(30deg);
   -webkit-box-reflect: below 3px -webkit-linear-gradient(top, transparent, transparent 8%, rgba(255, 255, 255, 0.5));
   opacity: 0.8;
