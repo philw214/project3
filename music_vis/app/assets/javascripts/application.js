@@ -20,10 +20,13 @@ $('document').ready(function() {
   var playButton = document.getElementById('play');
   var pauseButton = document.getElementById('pause');
   var restartButton = document.getElementById('restart');
+  var css = $("#css");
 
-  $('.changecss').on('click', function(){
-    $('head').append('<link rel="stylesheet" href="/assets/test.css" media="screen" />');
-  })
+
+
+// $(".changecss").on('click', function(){
+//   $('#css').attr('href','/assets/test.css');
+// });
 
   var audio = new Audio();
   audio.src = '';
@@ -100,6 +103,7 @@ $('document').ready(function() {
   var canvasContext = canvas.getContext('2d');
   var width = canvas.width;
   var height = canvas.height;
+
   //create new audio context
   var audioContext = new (window.AudioContext || window.webkitAudioContext)();
   var analyser = audioContext.createAnalyser();
@@ -107,8 +111,8 @@ $('document').ready(function() {
   source.connect(analyser);
   analyser.connect(audioContext.destination);
 
+  //create oscilloscope visual
   function visualizer() {
-    //create oscilloscope visual
     analyser.fftSize = 2048;
     var bufferLength = analyser.frequencyBinCount;
     var dataArray = new Uint8Array(bufferLength);
@@ -136,7 +140,28 @@ $('document').ready(function() {
       }
     canvasContext.lineTo(width, height/2);
     canvasContext.stroke();
+
     //create frequency bars visual
+    function freqBars() {
+      var bufferLength = analyser.frequencyBinCount;
+      var dataArray = new Uint8Array(bufferLength);
+      analyser.getByteFrequencyData(dataArray);
+      var barWidth = (width / bufferLength);
+      var barHeight;
+      var x = 0;
+        for(var i = 0; i < bufferLength; i++) {
+          barHeight = dataArray[i];
+          newHeight = barHeight;
+          canvasContext.fillStyle = 'rgb(' + (barHeight+100) + ', 100, 50)';
+          canvasContext.fillRect(x, height-barHeight/2, barWidth, barHeight);
+          x += barWidth + 1;
+      }
+    }
+    freqBars();
+  }
+  visualizer();
+
+  function reDraw(val) {
     var bufferLength = analyser.frequencyBinCount;
     var dataArray = new Uint8Array(bufferLength);
     analyser.getByteFrequencyData(dataArray);
@@ -145,10 +170,11 @@ $('document').ready(function() {
     var x = 0;
       for(var i = 0; i < bufferLength; i++) {
         barHeight = dataArray[i];
-        canvasContext.fillStyle = 'rgb(' + (barHeight+100) + ', 100, 50)';
+        newHeight = barHeight;
+        // canvasContext.fillStyle = 'rgb(' + (barHeight+100) + ', 100, 50)';
+        canvasContext.fillStyle = val;
         canvasContext.fillRect(x, height-barHeight/2, barWidth, barHeight);
         x += barWidth + 1;
-      }
+    }
   }
-  visualizer();
 });
