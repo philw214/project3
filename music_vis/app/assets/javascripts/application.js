@@ -126,13 +126,13 @@ $('document').ready(function() {
   source.connect(analyser);
   analyser.connect(audioContext.destination);
 
-  //create oscilloscope visual
   function visualizer(val1, val2) {
     analyser.fftSize = 2048;
     var bufferLength = analyser.frequencyBinCount;
     var dataArray = new Uint8Array(bufferLength);
     analyser.getByteTimeDomainData(dataArray);
 
+    //create oscilloscope visual
     var drawVisual = requestAnimationFrame(visualizer);
     canvasContext.clearRect(0, 0, width, height);
     // canvasContext.fillStyle = 'rgb(255, 255, 255)';
