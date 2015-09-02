@@ -1,9 +1,9 @@
 body{
-  background-image: url('/images/alt_bckgrd1.jpg');
+  background-image: url('/images/alt_bckgrd2.jpg');
 }
 
 img{
-  box-shadow: 9px 10px 23px 2px rgba(145,138,145,1);
+  box-shadow: 0px 10px 79px -3px rgba(145,138,145,1);
   border-radius: 80px;
   height:85%;
   width: 74%;
@@ -33,7 +33,9 @@ img{
  position: static;
  text-align: center;
 }
-
+#artist_info p {
+  color: black;
+}
 h1 {
   border-bottom: 3px solid;
   font-family: 'Iceland', cursive;
